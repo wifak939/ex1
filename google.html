@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Clone</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      background-color: rgb(52, 51, 51);
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .logo {
+      font-size: 100px;
+      color: white;
+      margin-top: 150px;
+    }
+    /* Search Box */
+    .search-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #303134;
+      border-radius: 24px;
+      padding: 10px 15px;
+      width: 500px;
+      margin: 20px auto;
+    }
+    .search-box input {
+      flex: 1;
+      background: none;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      color: white;
+      padding: 10px;
+    }
+    .search-box input::placeholder {
+      color: gray;
+    }
+    /* Icons */
+    .fa-search,
+    .mic-icon,
+    .camera-icon {
+      font-size: 18px;
+      color: gray;
+    }
+    .mic-icon,
+   .search-box img {
+    width: 20px;
+    height: 20px;
+   }
+    .buttons button {
+      border-radius: 10px;
+      margin-top: 20px;
+      height: 30px;
+      width: 150px;
+      background-color: rgb(47, 43, 43);
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    .buttons button:hover {
+      background-color: rgb(78, 84, 84);
+    }
+    .languages {
+      margin-top: 20px;
+      color: aliceblue;
+    }
+    .languages a {
+      text-decoration: none;
+      color: aliceblue;
+    }
+    .languages a:hover {
+      text-decoration: underline;
+    }
+    nav{
+        display: inline;
+    }
+    p span{
+        color: white;
+    }
+    p{
+        display: flex;
+        justify-content: end;
+        gap:10px ;
+    }
+  </style>
+</head>
+<nav>
+    <p><span>Gmail</span>  <span> Images</span></p> 
+</nav>
+<body>
+  <div class="logo">Google</div>
+  <div class="search-box">
+    <i class="fa fa-search search-icon"></i>
+    <input type="text" placeholder="Search Google or type a URL">
+    <span><img src="pngwing.icon.ico" alt=""></span>
+    <span><img src="pngwing.com.ico" alt=""></span>
+  </div>
+  <div class="buttons">
+    <button>Google Search</button>
+    <button>I'm Feeling Lucky</button>
+  </div>
+  <div class="languages">
+    Google offered in: <a href="#">العربية</a> <a href="#">Français</a>
+</body>
+</html>
