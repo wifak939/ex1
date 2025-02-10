@@ -6,22 +6,60 @@
     <title>Profile Card</title>
     <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
-<body>
+<STyle>
 
+</STyle>
+<header>
+    <nav>
+        <ul id="nav">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+<section id="home">
+    <h1>Bienvenue sur mon portfolio</h1>
+</section>
+<section id="about">
+    <h2 class="name">Darghouthi wifak</h2>
+    <p class="title">Web Developer</p>
+    <p class="description">Passionate about building web applications and learning new technologies.</p>
     <div class="card">
-        <img src="téléchargement.png" alt="Profile Picture" class="profile-img">
-        <h2 class="name">Darghouthi wifak</h2>
-        <p class="title">Web Developer</p>
-        <p class="description">Passionate about building web applications and learning new technologies.</p>
         <h3>Language</h3>
-            <li>Hhtml, CSS, Java script, python, Dart</li>
+            <li>Html, CSS, Java script, python, Dart</li>
           <h3>Framework</h3>
           <li>React, Django, Flutter, Boostrap</li>
-          <h3>Base de données</h3>
-          <li>My Sql, Firebase</li>
-
+    <h3>Base de données</h3>
+    <li>My Sql, Firebase</li>
+</section>
+<section id="work">
+<ul>
+    <h1>Work</h1>
+    <li>site web e-commerce with React</li>
+    <li>application web with flutter and firebase 'Renty car'</li>
+    <li>systeme de sécurité controle with site web developpe with flutter and IA</li>
+</ul>
+</section>
+     <!-- Section Contact -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form action="#">
+      <label for="name">Nom :</label>
+      <input type="text" id="name" name="name" required><br><br>
+      <label for="email">Email :</label>
+      <input type="email" id="email" name="email" required><br><br>
+      <label for="message">Message :</label><br>
+      <textarea id="message" name="message" rows="4" required></textarea><br><br>
+    </form>
+  </section>
         <button class="contact-btn">Contact Me</button>
-    </div>
-
+   
+        <footer>
+            <p> 2025 Wifak Darghouthi Tous droits réservés.</p>
+          </footer>
+        
 </body>
 </html>
