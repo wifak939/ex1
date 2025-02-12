@@ -1,0 +1,115 @@
+.navmenu img {
+    width:60px;
+    height: 60px;
+    margin-left: 67px;
+}
+.nav-links{
+    display: flex;
+    justify-content: space-around;
+    width:30%;
+    list-style: none;
+    align-items:center;
+    margin-right: 66px;
+}
+.navmenu{
+    display: flex;
+    justify-content: space-between;
+    padding:15px;
+    align-items:center;
+}
+.nav-links a{
+    text-decoration: none;
+    color:#484551
+}
+.nav-links a:hover {
+    color:#4fa3db;
+    text-decoration: underline;
+}
+header {
+    position: sticky;
+    top:0;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+.about-section{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.css-span{
+    color:#4fa3db;
+   font-weight: bold;
+}
+.watchvideo-btn{
+    border:none;
+    width:150px;
+    height: 50px;
+    margin-top: 12px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+.watchvideo-btn:hover{
+    background-color: #4fa3db;
+    color: white;
+}
+.projects-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+.project img {
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+.dropbtn { 
+    
+    color: rgb(118, 104, 104); 
+    padding: 16px; 
+  font-size: 16px;
+   border: none;
+  cursor: pointer;
+ }
+ .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1; 
+    margin-right: 50px; 
+   right: 8%
+  }
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .dropdown:hover .dropbtn {
+    color: #4fa3db;
+    text-decoration: underline;
+  }
+.project h3 {
+    text-align: center;
+}
+.project p  {
+    line-height: 35px;
+   
+}
+.project a {color: #4510e2}
+footer {background-color:#c7c7c4 ;
+    margin-top: 15px;
+height: 70px;}
+.footer-message{
+    text-align: center;
+    padding:20px;
+    color:#363945;
+}
+
+.footer-message span {color:#327eda;
+font-weight: bold;}
