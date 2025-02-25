@@ -1,0 +1,29 @@
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Session</title>
+</head>
+<body>
+    <h2>Simple To-Do List ✅</h2>
+
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <button id="addTask">Add Task</button>
+
+    <h3>Tasks:</h3>
+    <ul id="taskList"></ul>
+</body>
+<script>
+    function addTask(){
+        let text =document.getElementById('taskInput').value;
+        let taskList = document.getElementById('taskList');
+        let listItem = document.createElement('li');
+        listItem.textContent = text;
+        taskList.appendChild(listItem);
+        document.getElementById('taskInput').value = '';
+    }
+    document.getElementById('addTask').addEventListener('click',addTask); 
+</script>
+</html>

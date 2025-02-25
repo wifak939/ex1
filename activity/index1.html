@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Session</title>
+</head>
+<body>
+   
+    <h2>Guess the Number Game 🎲</h2>
+
+    <p>I have chosen a number between 1 and 10. Can you guess it?</p>
+
+    <label for="guess">Enter your guess:</label>
+    <input type="number" id="guess">
+    <button id="check">Check Guess</button>
+    <button id="restart">Restart</button>
+
+    <p id="message"></p>
+</body>
+<script>
+   let randomGeuss;
+
+function gesse(){
+    let ent =document.getElementById('guess').value;
+    return ent;
+}
+randomGeuss = Math.floor(Math.random() * 10) + 1;
+console.log(randomGeuss);
+
+function ChekGuess(){
+    let gess  =gesse();
+    if(gess == randomGeuss) {
+        alert('congratulation you win');
+    }
+    else if(gess > randomGeuss){
+        alert('your guess is too high');
+    }
+    else{
+        alert('your guess is too low');
+    }
+}
+function Restart(){
+    randomGeuss = Math.floor(Math.random() * 10) + 1;
+    console.log(randomGeuss);
+    document.getElementById('guess').innerHTML = '';
+
+}
+document.getElementById('check').addEventListener('click',ChekGuess);
+document.getElementById('restart').addEventListener('click',Restart);    
+</script>
+</html>

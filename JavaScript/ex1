@@ -1,0 +1,19 @@
+Début
+    Initialiser longueur à 0
+    Initialiser nb_mots à 1 (le premier mot est déjà commencé)
+    Initialiser nb_voyelles à 0
+    Lire la phrase
+
+    Pour chaque caractère c dans la phrase
+        Si c est une lettre (c != ' ')
+            longueur := longueur + 1
+            Si c est une voyelle ('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U')
+                nb_voyelles := nb_voyelles + 1
+        Sinon si c est un espace
+            nb_mots := nb_mots + 1
+    FinPour
+
+    Afficher "Longueur de la phrase : ", longueur
+    Afficher "Nombre de mots : ", nb_mots
+    Afficher "Nombre de voyelles : ", nb_voyelles
+Fin

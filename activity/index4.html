@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Session</title>
+</head>
+<style>
+    body {
+        text-align: center;
+        padding: 50px;
+        font-family: Arial, sans-serif;
+    }
+    button {
+        font-size: 18px;
+        padding: 10px 20px;
+        cursor: pointer;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+<body>
+    <h2>Random Color Changer 🎨</h2>
+    <button id="changeColor">Change Background Color</button>
+</body>
+<script>
+    const letters = "0123456789ABCDEF";
+    function randomcolor(){
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+    document.getElementById('changeColor').addEventListener('click', () => {
+        document.body.style.backgroundColor = randomcolor();
+    });
+</script>
+</html>
