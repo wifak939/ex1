@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Weather App</title>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#weather-info {
+    text-align: center;
+}
+/* Add this at the end of your CSS file */
+.weather-icon {
+    width: 100px;
+    height: 100px;
+    margin: 10px 0;
+}
+</style>
+<body>
+    <div class="container">
+        <h1>Simple Weather App</h1>
+        <div class="search-box">
+            <input type="text" id="city" placeholder="Enter city name">
+            <button onclick="getWeather()">Search</button>
+        </div>
+        <div id="weather-info">
+            <!-- Weather data will be displayed here -->
+
+        </div>
+    </div>
+</body>
+<script>
+   
+  
+
+function getWeather() {
+    let city = document.getElementById("city").value;
+    
+    if (!city){
+    alert("please enter city name");
+}
+let URL=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`;
+fetch(URL)
+.then(response=>{
+    if(!response.ok){
+        throw new Error('weather data not found');
+    }
+    
+    return response.json();
+})
+.then(data=>{
+    // displayweather(data);
+    console.log(data);
+})
+.catch(ereor=>{
+    alert(ereor.message);
+})
+}   
+function displayWeather(data) {
+    const weatherInfo = document.getElementById('weather-info');
+    // Get the weather icon code from the API response
+    const iconCode = data.weather[0].icon;
+    // Create the icon URL using OpenWeatherMap icon endpoint
+    const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png;`
+    
+    weatherInfo.innerHTML = `
+        <h2>${data.name}</h2>
+        <img src="${iconUrl}" alt="${data.weather[0].description}" class="weather-icon">
+        <p>Temperature: ${Math.round(data.main.temp)}°C</p>
+        <p>Weather: ${data.weather[0].main}</p>
+        <p>Description: ${data.weather[0].description}</p>
+    `;
+}
+ 
+</script>
+</html>

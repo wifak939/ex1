@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>timer</title>
+  </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    #sentence {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    input {
+      width: 80%;
+      padding: 10px;
+      font-size: 18px;
+      border: 2px solid #333;
+      border-radius: 5px;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+  <body>
+    <h1>Typing Speed Test ⌨️</h1>
+    <p id="sentence">Loading...</p>
+    <input
+      type="text"
+      id="typing-input"
+      placeholder="Start typing here..."
+      disabled
+    />
+    <p id="timer">Time: 0s</p>
+    <button onclick="restartTest()">Restart</button>
+    <p id="result"></p>
+  </body>
+  <script>
+    const sentences = [
+      "JavaScript is a versatile programming language.",
+      "Coding challenges are a great way to improve skills.",
+      "Web development includes HTML, CSS, and JavaScript.",
+      "Practice makes a programmer perfect.",
+    ];
+    const timer = document.getElementById("timer");
+    let startTime, interval;
+    const sentenceEl = document.getElementById("sentence");
+    const inputEl = document.getElementById("typing-input");
+    const timerEl = document.getElementById("timer");
+    const resultEl = document.getElementById("result");
+
+    function StartTimer() {
+      interval = setInterval(() => {
+        const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+        timerEl.textContent = `Time: ${elapsedTime}s`;
+      }, 1000);
+      function stopTimer() {
+        // Clear the interval
+        clearInterval(interval);
+      }
+    }
+    function restartTest() {
+      // Reset the input field, result, and timer
+      inputEl.value = "";
+      inputEl.disabled = false;
+      resultEl.textContent = "";
+      const randomIndex = Math.floor(Math.random() * sentences.length);
+      sentenceEl.textContent = sentences[randomIndex];
+      timerEl.textContent = "Time: 0s";
+      clearInterval(interval);
+      startTime = null;
+    }
+    inputEl.addEventListener("input", () => {
+      // Start the timer when the user starts typing
+      if (!startTime) StartTimer();
+      // Check if the input matches the sentence
+      if (inputEl.value.trim() === sentenceEl.textContent.trim()) {
+        stopTimer();
+        // Calculate the words per minute
+        let startTime = Date.now();
+        const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+        const words = sentenceEl.textContent.split(" ").length;
+        const wpm = Math.round((words / elapsedTime) * 60);
+        resultEl.textContent = `✅ Done! WPM:${wpm}`;
+        inputEl.disabled = true;
+      }
+    });
+    restartTest();
+  </script>
+</html>

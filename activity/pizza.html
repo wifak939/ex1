@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Order</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50vh;
+        flex-direction: column;
+    }
+    .option {
+        margin-top: 20px;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>Order Your Pizza</h1>
+        <img src="pizza.jpg" alt="Delicious Pizza" class="pizza-img">
+        <div class="form-group">
+            <label for="type">Pizza Type:</label>
+            <select id="type">
+                <option value="margherita">Margherita</option>
+                <option value="4 Saisons">4 Saisons</option>
+                <option value="Double">Double</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="size">Pizza Size:</label>
+            <select id="size">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+        </div>
+        <button onclick="calculatePrice(event)">Get Price</button>
+        <p id="price"></p>
+    </div>
+
+    <script>
+        function calculatePrice(e) {
+            e.preventDefault(); 
+            let price = 0; 
+            
+            let size = document.querySelector("#size").value;
+            let type = document.querySelector("#type").value;
+
+            if (size === "Small") {
+                price += 5;
+            } else if (size === "Medium") {
+                price += 10;
+            } else if (size === "Large") {
+                price += 15;
+            }
+
+            if (type === "margherita") {
+                price += 5;
+            } else if (type === "4 Saisons") {
+                price += 10;
+            } else if (type === "Double") {
+                price += 15;
+            }
+
+            document.getElementById("price").innerHTML = `Total Price: ${price} $`;
+        }
+    </script>
+</body>
+</html>

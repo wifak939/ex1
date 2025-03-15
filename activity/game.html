@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack-a-Mole</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #ffebcd;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.hole {
+    width: 100px;
+    height: 100px;
+    background-color: #654321;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.mole {
+    width: 80px;
+    height: 80px;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -80px;
+    left: 10px;
+    transition: bottom 0.3s;
+    cursor: pointer;
+}
+
+.show {
+    bottom: 10px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+</style>
+<body>
+    <h1>Whack-a-Mole Game 🐹</h1>
+    <h2>Score: <span id="score">0</span></h2>
+    <div class="grid">
+        <div class="hole"><div class="mole"></div></div>
+        <div class="hole"><div class="mole"></div></div>
+        <div class="hole"><div class="mole"></div></div>
+        <div class="hole"><div class="mole"></div></div>
+        <div class="hole"><div class="mole"></div></div>
+        <div class="hole"><div class="mole"></div></div>
+    </div>
+    <button id="start">Start Game</button>
+    <script src="script.js"></script>
+</body>
+<script>
+//     const moles=document.querySelectorAll('mole');
+//     const scpre=document.getElementById('score');
+//     let gameActive=false;
+//     let score=0;
+//   const  randompickhole=()=>{
+
+//     if(!gameActive) return;
+//         let randomhole=holes[Math.floor(Math.random()*holes.length)];
+//         let hole=moles[randomhole];
+        
+//         hole.classList.add('show');
+//         setTimeout(()=>{
+//             hole.classList.remove('show');
+//             randompickhole();
+//         },700)
+//         }
+// Select all elements with the class 'mole' and store them in the moles variable
+const moles = document.querySelectorAll('.mole');
+ 
+// Select the element with the id 'score' and store it in the scoreDisplay variable
+const scoreDisplay = document.getElementById('score');
+
+// Select the element with the id 'start' and store it in the startButton variable
+const startButton = document.getElementById('start');
+
+// Initialize the score variable to 0
+let score = 0;
+
+// Initialize the gameActive variable to false
+let gameActive = false;
+function randomMole() {
+    // If the game is not active, exit the function
+    if (!gameActive) return;
+
+    // Generate a random index to select a mole
+    let randomIndex = Math.floor(Math.random() * moles.length);
+    let mole = moles[randomIndex];
+
+    // Add the 'show' class to the selected mole to make it visible
+     mole.classList.add('show');
+
+    // After 700 milliseconds, remove the 'show' class and call randomMole again
+    setTimeout(() => {
+        mole.classList.remove('show');
+        randomMole();
+    }, 700);
+}
+// Add a click event listener to each mole
+moles.forEach(mole => {
+    mole.addEventListener('click', () => {
+        // If the clicked mole is visible (has the 'show' class)
+        if (mole.classList.contains('show')) {
+            // Increment the score
+            score++;
+            // Update the score display
+            scoreDisplay.textContent = score;
+            // Remove the 'show' class from the clicked mole
+            mole.classList.remove('show');
+        }
+    });
+});
+    // Add a click event listener to the start button
+startButton.addEventListener('click', () => {
+    // Reset the score to 0
+    score = 0;
+    // Update the score display
+    scoreDisplay.textContent = score;
+    // Set gameActive to true to start the game
+    gameActive = true;
+    // Call the randomMole function to start showing moles
+    randomMole();
+
+    // After 10 seconds, end the game
+    setTimeout(() => {
+        // Set gameActive to false to stop the game
+        gameActive = false;
+        // Show an alert with the final score
+        alert(`Game Over! Your score is: ${score}`);
+    }, 10000);
+});
+</script>
+</html>

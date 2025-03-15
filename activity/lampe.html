@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Lamp</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        button{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Click the button to toggle the lamp</h1>
+    <img id="lamp" src="pic_bulboff.gif" alt="Lamp">
+    <button id="click">Turn on</button>
+
+    <script>
+        const button = document.getElementById("click");
+        const lamp = document.getElementById("lamp");
+
+        button.addEventListener("click", function() {
+            if (lamp.src.includes("pic_bulboff.gif")) {
+                lamp.src = "pic_bulbon.gif"; 
+                button.textContent = "Turn off";
+            } else {
+                lamp.src = "pic_bulboff.gif";
+                button.textContent = "Turn on";
+            }
+        });
+    </script>
+
+</body>
+</html>
